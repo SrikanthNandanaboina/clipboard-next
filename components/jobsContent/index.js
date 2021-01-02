@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Up, Down } from "./arrowIcons";
-import { server } from "../../config";
 import PostDataWrapper from "./jobDetails";
 import JobItems from "./jobTitles";
 
@@ -21,7 +20,7 @@ const JobContent = ({ searchText }) => {
     const { Location, Role, Experience } = sortData;
     try {
       const data = await fetch(
-        `${server}/api/jobs?search=${searchText}&location=${Location}&role=${Role}&experience=${Experience}`
+        `/api/jobs?search=${searchText}&location=${Location}&role=${Role}&experience=${Experience}`
       );
       const jobsData = await data.json();
       setJobs(jobsData);

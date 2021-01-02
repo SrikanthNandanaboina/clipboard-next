@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { server } from "../../config";
 
 const Filter = () => {
   const [filters, addFilterData] = useState({});
   const [filterTypeState, setFilters] = useState([]);
 
   const getFilterData = async () => {
-    const data = await fetch(`${server}/api/filters`);
+    const data = await fetch(`/api/filters`);
     const filterData = await data.json();
     addFilterData(filterData);
     const filterTypes = Object.keys(filterData).map((ele) => ({
